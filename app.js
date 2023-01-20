@@ -103,6 +103,22 @@ class LinkedList {
     str += 'null';
     return str;
   }
+
+  insertAt(value, index) {
+    let prev = this.at(index - 1);
+    if(!prev) return;
+    let temp = prev.next;
+    const newNode = new Node(value);
+    prev.next = newNode;
+    newNode.next = temp;
+  }
+
+  removeAt(index) {
+    let prev = this.at(index - 1);
+    if(!prev) return;
+    let temp = prev.next.next;
+    prev.next = temp;
+  }
 }
 
 class Node {
